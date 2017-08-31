@@ -1,4 +1,4 @@
-package br.com.mackenzie.bancodistribuido.bancodistribuido;
+package application;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
