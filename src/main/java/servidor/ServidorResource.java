@@ -1,42 +1,32 @@
 package servidor;
 
-import com.google.gson.Gson;
+import org.springframework.web.bind.annotation.*;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
+import javax.websocket.server.PathParam;
 
-@Path("servidorUm")
-public class ServidorDeNegociosUm implements ServidorDeNegocios{
+
+@RestController
+@RequestMapping("/servidor")
+public class ServidorResource{
 
     ServidorDeDados servidorDeDados = new ServidorDeDados();
 
-    @Override
-    @Path("/deposito/{conta}/{quantidade}")
-    @POST
+    @PostMapping("/deposito/{conta}/{quantidade}")
     public void deposito(@PathParam("conta") int conta, @PathParam("quantidade") int quantidade) {
 
     }
 
-    @Override
-    @Path("/saque/{conta}/{quantidade}")
-    @POST
+    @PostMapping("/saque/{conta}/{quantidade}")
     public void saque(@PathParam("conta") int conta,@PathParam("quantidade") int quantidade) {
-
-
 
     }
 
-    @Override
-    @Path("/saldo/{conta}")
-    @GET
+    @RequestMapping(value = "/saldo/{conta}",method = RequestMethod.GET)
     public int saldo(@PathParam("conta") int conta) {
 
         return servidorDeDados.saldoCliente(conta);
     }
 
-    @Override
     public void transferencia(int contaOrigem, int contaDestino, int valor) {
 
     }
