@@ -1,10 +1,16 @@
 package servidor;
 
+import com.google.gson.Gson;
+
+import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 
+@Path("servidorUm")
 public class ServidorDeNegociosUm implements ServidorDeNegocios{
+
+    ServidorDeDados servidorDeDados = new ServidorDeDados();
 
     @Override
     @Path("/deposito/{conta}/{quantidade}")
@@ -14,13 +20,20 @@ public class ServidorDeNegociosUm implements ServidorDeNegocios{
     }
 
     @Override
-    public void saque(int conta, int quantidade) {
+    @Path("/saque/{conta}/{quantidade}")
+    @POST
+    public void saque(@PathParam("conta") int conta,@PathParam("quantidade") int quantidade) {
+
+
 
     }
 
     @Override
-    public int saldo(int conta) {
-        return 0;
+    @Path("/saldo/{conta}")
+    @GET
+    public int saldo(@PathParam("conta") int conta) {
+
+        return servidorDeDados.saldoCliente(conta);
     }
 
     @Override

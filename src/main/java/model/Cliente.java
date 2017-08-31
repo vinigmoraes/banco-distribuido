@@ -3,20 +3,20 @@ package model;
 public class Cliente {
 
     private String nome;
-    private Long saldo;
-    private String conta;
+    private int saldo;
+    private int conta;
 
-    public Cliente(String nomeDoCliente, long saldoDoCliente, String conta){
+    public Cliente(String nomeDoCliente, int saldoDoCliente, int conta){
         this.nome = nomeDoCliente;
         this.saldo = saldoDoCliente;
         this.conta = conta;
     }
 
-    public String getConta() {
+    public int getConta() {
         return conta;
     }
 
-    public void setConta(String conta) {
+    public void setConta(int conta) {
         this.conta = conta;
     }
 
@@ -28,11 +28,11 @@ public class Cliente {
         this.nome = nome;
     }
 
-    public Long getSaldo() {
+    public int getSaldo() {
         return saldo;
     }
 
-    public void setSaldo(Long saldo) {
+    public void setSaldo(int saldo) {
         this.saldo = saldo;
     }
 }
