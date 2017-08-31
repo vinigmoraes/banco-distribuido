@@ -1,4 +1,4 @@
-package br.com.mackenzie.bancodistribuido.bancodistribuido;
+package application;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
