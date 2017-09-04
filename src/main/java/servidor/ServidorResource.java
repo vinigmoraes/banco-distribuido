@@ -1,15 +1,20 @@
 package servidor;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.websocket.server.PathParam;
 
 
 @RestController
-@RequestMapping("/servidor")
+@RequestMapping("/negocios1")
 public class ServidorResource{
 
-    ServidorDeDados servidorDeDados = new ServidorDeDados();
+    @Autowired
+    private ServidorDeDados servidorDeDados;
+
+    @Autowired
+    private ServidorService servidorService;
 
     @PostMapping("/deposito/{conta}/{quantidade}")
     public void deposito(@PathParam("conta") int conta, @PathParam("quantidade") int quantidade) {
@@ -22,12 +27,16 @@ public class ServidorResource{
     }
 
     @RequestMapping(value = "/saldo/{conta}",method = RequestMethod.GET)
-    public int saldo(@PathParam("conta") int conta) {
+    public int saldo(@PathVariable("conta") Integer conta) {
 
         return servidorDeDados.saldoCliente(conta);
     }
 
-    public void transferencia(int contaOrigem, int contaDestino, int valor) {
+    @RequestMapping(value = "/transferencia/{contaOrigem}/{contaDestino}/{valor}", method = RequestMethod.POST)
+    public void transferencia(@PathVariable("contaOrigem") Integer contaOrigem,
+                              @PathVariable("contaDestino") Integer contaDestino,
+                              @PathVariable("valor") Integer valor) {
 
+        servidorService.efetuaTransferenciaEntreCliente(contaOrigem,contaDestino,valor);
     }
 }
