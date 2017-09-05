@@ -6,6 +6,7 @@ public class Cliente {
     private String nome;
     private int saldo;
     private int conta;
+    private String mensagem;
 
     public Cliente(Integer id, String nomeDoCliente, int saldoDoCliente, int conta){
         this.nome = nomeDoCliente;
@@ -55,5 +56,13 @@ public class Cliente {
 
     public void setSaldo(int saldo) {
         this.saldo = saldo;
+    }
+
+    public String getMensagem() {
+        return mensagem;
+    }
+
+    public void setMensagem(String mensagem) {
+        this.mensagem = mensagem;
     }
 }
