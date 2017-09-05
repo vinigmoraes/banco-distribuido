@@ -2,9 +2,7 @@ package servidor;
 
 import com.google.gson.Gson;
 import model.Cliente;
-import model.Mensagem;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import static model.Mensagem.*;
@@ -19,26 +17,42 @@ public class ServidorService {
 
         Cliente cliente = encontraClientePorConta(contaOrigem);
 
+        if(cliente == null){
+            cliente.setMensagem(CONTA_INVALIDA.mensagem());
+            return new Gson().toJson(cliente);
+        }
+
         if(servidorDeDados.saldoCliente(contaOrigem) >= valor){
 
             atualizaSaldoEntreTransferencias(contaOrigem, contaDestino, valor);
-            cliente.setMensagem(SUCESSO.mensagem());
-
+            cliente.setMensagem(TRANSFERENCIA_SUCESSO.mensagem());
             return new Gson().toJson(cliente);
-        }
+        }else{
             cliente.setMensagem(SALDO_INVALIDO.mensagem());
-            return cliente.getMensagem();
+            return new Gson().toJson(cliente);
+             }
         }
 
 
-    public HttpStatus efetuaSaque(int conta, int quantidade) {
+    public String efetuaSaque(int conta, int quantidade) {
+
+        Cliente cliente = encontraClientePorConta(conta);
 
         if(servidorDeDados.saldoCliente(conta) >= quantidade){
-            Cliente cliente = encontraClientePorConta(conta);
             cliente.setSaldo(servidorDeDados.saldoCliente(conta) - quantidade);
-            return HttpStatus.OK;
+            cliente.setMensagem(SAQUE_SUCESSO.mensagem());
+            return new Gson().toJson(cliente);
         }
-        return HttpStatus.NOT_FOUND;
+         cliente.setMensagem(SALDO_INVALIDO.mensagem());
+         return new Gson().toJson(cliente);
+    }
+
+    public String efetuaDeposito(int conta, int quantidade) {
+
+        Cliente cliente = encontraClientePorConta(conta);
+        cliente.setSaldo(servidorDeDados.saldoCliente(conta) + quantidade);
+        return new Gson().toJson(cliente);
+
     }
 
     private Cliente encontraClientePorConta(Integer id){
@@ -58,4 +72,5 @@ public class ServidorService {
         Cliente clienteDestino = encontraClientePorConta(contaDestino);
         clienteDestino.setSaldo(servidorDeDados.saldoCliente(contaDestino) + valor);
     }
+
 }

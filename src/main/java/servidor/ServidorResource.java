@@ -14,14 +14,16 @@ public class ServidorResource{
     private ServidorService servidorService;
 
     @PostMapping("/deposito/{conta}/{quantidade}")
-    public void deposito(@PathVariable("conta") int conta, @PathVariable("quantidade") int quantidade) {
+    public String deposito(@PathVariable("conta") int conta, @PathVariable("quantidade") int quantidade) {
+
+        return servidorService.efetuaDeposito(conta, quantidade);
 
     }
 
     @PostMapping("/saque/{conta}/{quantidade}")
-    public void saque(@PathVariable("conta") int conta, @PathVariable("quantidade") int quantidade) {
+    public String saque(@PathVariable("conta") int conta, @PathVariable("quantidade") int quantidade) {
 
-        servidorService.efetuaSaque(conta,quantidade);
+       return servidorService.efetuaSaque(conta,quantidade);
     }
 
     @RequestMapping(value = "/saldo/{conta}",method = RequestMethod.GET)

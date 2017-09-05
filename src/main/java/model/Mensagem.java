@@ -2,9 +2,10 @@ package model;
 
 public enum Mensagem {
 
-    SUCESSO("Transferencia realizada com sucesso"),
+    TRANSFERENCIA_SUCESSO("Transferencia realizada com sucesso"),
     CONTA_INVALIDA("A conta digitada não foi encontrada"),
-    SALDO_INVALIDO("Saldo insuficiente");
+    SALDO_INVALIDO("Saldo insuficiente"),
+    SAQUE_SUCESSO("Sque efetuado com sucesso");
 
     private String messagem;
 
