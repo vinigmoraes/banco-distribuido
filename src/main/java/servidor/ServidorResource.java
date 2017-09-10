@@ -9,8 +9,6 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/negocios1")
 public class ServidorResource{
 
-    private final Logger logger = LoggerFactory.getLogger(ServidorResource.class);
-
     @Autowired
     private ServidorDeDados servidorDeDados;
 

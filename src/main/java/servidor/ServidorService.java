@@ -2,6 +2,8 @@ package servidor;
 
 import com.google.gson.Gson;
 import model.Cliente;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,6 +11,8 @@ import static model.Mensagem.*;
 
 @Service
 public class ServidorService {
+
+    private final Logger logger = LoggerFactory.getLogger(ServidorService.class);
 
     @Autowired
     private ServidorDeDados servidorDeDados;
@@ -34,6 +38,7 @@ public class ServidorService {
 
             atualizaSaldoEntreTransferencias(contaOrigem, contaDestino, valor);
             cliente.setMensagem(TRANSFERENCIA_SUCESSO.mensagem());
+            logger.info("Transferencia efetuada com sucesso entre as contas " + contaOrigem + " e" + contaDestino);
             return new Gson().toJson(cliente);
         }else{
             cliente.setMensagem(SALDO_INVALIDO.mensagem());
@@ -55,6 +60,7 @@ public class ServidorService {
         if(servidorDeDados.saldoCliente(conta) >= quantidade){
             cliente.setSaldo(servidorDeDados.saldoCliente(conta) - quantidade);
             cliente.setMensagem(SAQUE_SUCESSO.mensagem());
+            logger.info("Saque efetuado com sucesso na conta" + conta + " na quantia de " + quantidade);
             return new Gson().toJson(cliente);
         }
          cliente.setMensagem(SALDO_INVALIDO.mensagem());
@@ -72,6 +78,8 @@ public class ServidorService {
 
         Cliente cliente = encontraClientePorConta(conta);
         cliente.setSaldo(servidorDeDados.saldoCliente(conta) + quantidade);
+        cliente.setMensagem(SAQUE_SUCESSO.mensagem());
+        logger.info("Deposito efetuado com sucesso na conta " + conta + " na quantia de" + quantidade);
         return new Gson().toJson(cliente);
 
     }

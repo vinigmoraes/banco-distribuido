@@ -5,7 +5,9 @@ public enum Mensagem {
     TRANSFERENCIA_SUCESSO("Transferencia realizada com sucesso"),
     CONTA_INVALIDA("A conta digitada não foi encontrada"),
     SALDO_INVALIDO("Saldo insuficiente"),
-    SAQUE_SUCESSO("Sque efetuado com sucesso");
+    SAQUE_SUCESSO("Saque efetuado com sucesso"),
+    DEPOSITO_SUCESSO("Saque efetuado com sucesso");
+
 
     private String messagem;
 
