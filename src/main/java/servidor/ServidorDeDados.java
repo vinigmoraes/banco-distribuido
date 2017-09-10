@@ -1,6 +1,8 @@
 package servidor;
 
 import model.Cliente;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -8,6 +10,8 @@ import java.util.List;
 
 @Component
 public class ServidorDeDados {
+
+    private final Logger logger = LoggerFactory.getLogger(ServidorDeDados.class);
 
     private List<Cliente> clientes = new ArrayList<>();
 
@@ -40,6 +44,9 @@ public class ServidorDeDados {
                 .filter(cliente -> cliente.getConta() == conta)
                 .findFirst()
                 .get().getSaldo();
+
+         logger.info("Conta" + conta);
+
         return saldo;
     }
 }
