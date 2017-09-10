@@ -45,7 +45,7 @@ public class ServidorDeDados {
                 .findFirst()
                 .get().getSaldo();
 
-         logger.info("Conta" + conta);
+         logger.info("Saldo da Conta" + " " + conta + " Consultado");
 
         return saldo;
     }
