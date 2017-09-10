@@ -13,6 +13,14 @@ public class ServidorService {
     @Autowired
     private ServidorDeDados servidorDeDados;
 
+    /**
+     * método responsável por efetuar transferencia bancaria entre duas contas.
+     * @param contaOrigem
+     * @param contaDestino
+     * @param valor
+     * @return JSON
+     */
+
     public String efetuaTransferenciaEntreCliente(int contaOrigem, int contaDestino, int valor){
 
         Cliente cliente = encontraClientePorConta(contaOrigem);
@@ -33,6 +41,12 @@ public class ServidorService {
              }
         }
 
+    /**
+     * método responsável por efetuar saque em uma determinada conta.
+     * @param conta
+     * @param quantidade
+     * @return JSON
+     */
 
     public String efetuaSaque(int conta, int quantidade) {
 
@@ -46,6 +60,13 @@ public class ServidorService {
          cliente.setMensagem(SALDO_INVALIDO.mensagem());
          return new Gson().toJson(cliente);
     }
+
+    /**
+     * método responsável por efetuar deposito em uma determinada conta.
+     * @param conta
+     * @param quantidade
+     * @return JSON
+     */
 
     public String efetuaDeposito(int conta, int quantidade) {
 
