@@ -67,3 +67,5 @@
 2017-09-09 22:48:35.603  INFO 22685 --- [http-nio-8080-exec-6] servidor.ServidorDeDados                 : Saldo da Conta 6Consultado
 2017-09-09 22:48:35.606  INFO 22685 --- [http-nio-8080-exec-6] servidor.ServidorService                 : Deposito efetuado com sucesso na conta 6 na quantia de400
 2017-09-09 22:50:57.307  INFO 22685 --- [http-nio-8080-exec-9] servidor.ServidorDeDados                 : Saldo da Conta 3Consultado
+2017-09-09 22:54:45.731  INFO 22685 --- [Thread-3] ationConfigEmbeddedWebApplicationContext : Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@62fdb4a6: startup date [Sat Sep 09 22:40:44 BRT 2017]; root of context hierarchy
+2017-09-09 22:54:45.737  INFO 22685 --- [Thread-3] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
