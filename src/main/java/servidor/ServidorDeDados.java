@@ -7,15 +7,17 @@ import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.locks.ReentrantLock;
 
-@Component
 public class ServidorDeDados {
 
     private final Logger logger = LoggerFactory.getLogger(ServidorDeDados.class);
 
+    private ReentrantLock locker = new ReentrantLock();
+
     private List<Cliente> clientes = new ArrayList<>();
 
-    protected List<Cliente> listaDeClientes() {
+    public List<Cliente> listaDeClientes() {
 
         clientes.add(new Cliente(1, "Bruno", 1000, 1));
         clientes.add(new Cliente(2, "Gabriel", 1000, 2));
@@ -49,5 +51,15 @@ public class ServidorDeDados {
 
         return saldo;
     }
+
+    public void getLock(){
+        locker.lock();
+    }
+
+    public void unLock(){
+        locker.unlock();
+    }
+
+    public boolean isLocked(){ return locker.isLocked(); }
 }
 

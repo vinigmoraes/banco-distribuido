@@ -1,13 +1,13 @@
-package servidor;
+package servidor.negocio;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import servidor.ServidorDeDados;
+import servidor.ServidorService;
 
 @RestController
-@RequestMapping("/negocios1")
-public class ServidorResource{
+@RequestMapping("/negocios2")
+public class ServidorDoisResource implements ServidorDeNegocios {
 
     @Autowired
     private ServidorDeDados servidorDeDados;
@@ -19,7 +19,6 @@ public class ServidorResource{
     public String deposito(@PathVariable("conta") int conta, @PathVariable("quantidade") int quantidade) {
 
         return servidorService.efetuaDeposito(conta, quantidade);
-
     }
 
     @PostMapping("/saque/{conta}/{quantidade}")

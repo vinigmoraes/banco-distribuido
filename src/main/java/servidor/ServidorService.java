@@ -6,8 +6,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import utils.ClienteUtils;
 
 import static model.Mensagem.*;
+import static utils.ClienteUtils.*;
 
 @Service
 public class ServidorService {
@@ -29,20 +31,13 @@ public class ServidorService {
 
         Cliente cliente = encontraClientePorConta(contaOrigem);
 
-        if(cliente == null){
-            cliente.setMensagem(CONTA_INVALIDA.mensagem());
-            return new Gson().toJson(cliente);
-        }
-
-        if(servidorDeDados.saldoCliente(contaOrigem) >= valor){
-
-            atualizaSaldoEntreTransferencias(contaOrigem, contaDestino, valor);
-            cliente.setMensagem(TRANSFERENCIA_SUCESSO.mensagem());
-            logger.info("Transferencia efetuada com sucesso entre as contas " + contaOrigem + " e" + contaDestino);
+        if(verificaSeClienteExiste(cliente) && servidorDeDados.saldoCliente(contaOrigem) >= valor && valor > 0){
+                    atualizaSaldoEntreTransferencias(contaOrigem, contaDestino, valor);
+                    cliente.setMensagem(TRANSFERENCIA_SUCESSO.mensagem());
+                    logger.info("Transferencia efetuada com sucesso entre as contas " + contaOrigem + " e" + contaDestino);
             return new Gson().toJson(cliente);
         }else{
-            cliente.setMensagem(SALDO_INVALIDO.mensagem());
-            return new Gson().toJson(cliente);
+            return new Gson().toJson(SALDO_INVALIDO.mensagem());
              }
         }
 
@@ -57,14 +52,14 @@ public class ServidorService {
 
         Cliente cliente = encontraClientePorConta(conta);
 
-        if(servidorDeDados.saldoCliente(conta) >= quantidade){
-            cliente.setSaldo(servidorDeDados.saldoCliente(conta) - quantidade);
-            cliente.setMensagem(SAQUE_SUCESSO.mensagem());
-            logger.info("Saque efetuado com sucesso na conta" + conta + " na quantia de " + quantidade);
-            return new Gson().toJson(cliente);
-        }
-         cliente.setMensagem(SALDO_INVALIDO.mensagem());
-         return new Gson().toJson(cliente);
+            if(servidorDeDados.saldoCliente(conta) >= quantidade){
+                    cliente.setSaldo(servidorDeDados.saldoCliente(conta) - quantidade);
+                    cliente.setMensagem(SAQUE_SUCESSO.mensagem());
+                    logger.info("Saque efetuado com sucesso na conta" + conta + " na quantia de " + quantidade);
+                    return new Gson().toJson(cliente);
+            }else {
+                return new Gson().toJson(SALDO_INVALIDO.mensagem());
+            }
     }
 
     /**
@@ -83,23 +78,4 @@ public class ServidorService {
         return new Gson().toJson(cliente);
 
     }
-
-    private Cliente encontraClientePorConta(Integer id){
-
-        return servidorDeDados.listaDeClientes()
-                .stream().
-                        filter(cliente -> cliente.getConta() == id)
-                .findFirst()
-                .get();
-    }
-
-    private void atualizaSaldoEntreTransferencias(int contaOrigem, int contaDestino, int valor) {
-
-        Cliente clienteOrigem = encontraClientePorConta(contaOrigem);
-        clienteOrigem.setSaldo(servidorDeDados.saldoCliente(contaOrigem) - valor);
-
-        Cliente clienteDestino = encontraClientePorConta(contaDestino);
-        clienteDestino.setSaldo(servidorDeDados.saldoCliente(contaDestino) + valor);
-    }
-
 }
