@@ -7,9 +7,11 @@ import servidor.ServidorDeDados;
 
 import static model.Mensagem.CONTA_INVALIDA;
 
+@Component
 public class ClienteUtils {
 
-    private static ServidorDeDados servidorDeDados;
+    @Autowired
+    private ServidorDeDados servidorDeDados;
 
     public static boolean verificaSeClienteExiste(Cliente cliente) {
         if(cliente != null){
@@ -19,17 +21,16 @@ public class ClienteUtils {
         return false;
     }
 
-    public static Cliente encontraClientePorConta(Integer id){
+    public Cliente encontraClientePorConta(Integer id){
 
         return servidorDeDados.listaDeClientes()
-                .stream().
-                        filter(cliente -> cliente.getConta() == id)
+                .stream().filter(cliente -> cliente.getConta() == id)
                 .findFirst()
                 .get();
 
     }
 
-    public static void atualizaSaldoEntreTransferencias(int contaOrigem, int contaDestino, int valor) {
+    public void atualizaSaldoEntreTransferencias(int contaOrigem, int contaDestino, int valor) {
 
         Cliente clienteOrigem = encontraClientePorConta(contaOrigem);
         clienteOrigem.setSaldo(servidorDeDados.saldoCliente(contaOrigem) - valor);

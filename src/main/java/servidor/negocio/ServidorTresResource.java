@@ -9,7 +9,6 @@ import servidor.ServidorService;
 @RequestMapping("/negocios3")
 public class ServidorTresResource implements ServidorDeNegocios {
 
-    @Autowired
     private ServidorDeDados servidorDeDados;
 
     @Autowired

@@ -10,7 +10,6 @@ import servidor.negocio.ServidorDeNegocios;
 @RequestMapping("/negocios1")
 public class ServidorUmResource implements ServidorDeNegocios {
 
-    @Autowired
     private ServidorDeDados servidorDeDados;
 
     @Autowired
