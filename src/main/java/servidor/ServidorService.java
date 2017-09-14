@@ -75,9 +75,17 @@ public class ServidorService {
 
         if(servidorDeDados.saldoCliente(conta) >= quantidade){
 
+            try{
+            servidorDeDados.getLock();
             cliente.setSaldo(servidorDeDados.saldoCliente(conta) - quantidade);
             cliente.setMensagem(SAQUE_SUCESSO.mensagem());
             logger.info("Saque efetuado com sucesso na conta" + conta + " na quantia de " + quantidade);
+                Thread.sleep(5000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }finally {
+                servidorDeDados.unLock();
+            }
             return new Gson().toJson(cliente);
         }
             return new Gson().toJson(SALDO_INVALIDO.mensagem());
@@ -93,10 +101,26 @@ public class ServidorService {
     public String efetuaDeposito(int conta, int quantidade) {
 
         Cliente cliente = clienteUtils.encontraClientePorConta(conta);
-        cliente.setSaldo(servidorDeDados.saldoCliente(conta) + quantidade);
-        cliente.setMensagem(SAQUE_SUCESSO.mensagem());
-        logger.info("Deposito efetuado com sucesso na conta " + conta + " na quantia de" + quantidade);
-        return new Gson().toJson(cliente);
 
+        if(servidorDeDados.isLocked()){
+            return TRANSACAO_EM_USO.mensagem();
+        }
+
+        if(servidorDeDados.saldoCliente(conta) < quantidade){
+            try{
+            servidorDeDados.getLock();
+            cliente.setSaldo(servidorDeDados.saldoCliente(conta) + quantidade);
+            cliente.setMensagem(SAQUE_SUCESSO.mensagem());
+            logger.info("Deposito efetuado com sucesso na conta " + conta + " na quantia de" + quantidade);
+            Thread.sleep(5000);
+
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }finally {
+                servidorDeDados.unLock();
+            }
+            return new Gson().toJson(cliente);
+        }
+        return new Gson().toJson(SALDO_INVALIDO.mensagem());
     }
 }
