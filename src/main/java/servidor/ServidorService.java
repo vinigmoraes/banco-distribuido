@@ -6,8 +6,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import utils.ClienteUtils;
 
 import static model.Mensagem.*;
+import static utils.ClienteUtils.*;
 
 @Service
 public class ServidorService {
@@ -16,6 +18,9 @@ public class ServidorService {
 
     @Autowired
     private ServidorDeDados servidorDeDados;
+
+    @Autowired
+    private ClienteUtils clienteUtils;
 
     /**
      * método responsável por efetuar transferencia bancaria entre duas contas.
@@ -27,23 +32,30 @@ public class ServidorService {
 
     public String efetuaTransferenciaEntreCliente(int contaOrigem, int contaDestino, int valor){
 
-        Cliente cliente = encontraClientePorConta(contaOrigem);
+        Cliente cliente = clienteUtils.encontraClientePorConta(contaOrigem);
 
-        if(cliente == null){
-            cliente.setMensagem(CONTA_INVALIDA.mensagem());
+        if(servidorDeDados.isLocked()){
+            return TRANSACAO_EM_USO.mensagem();
+        }
+
+        if(verificaSeClienteExiste(cliente) && servidorDeDados.saldoCliente(contaOrigem) >= valor && valor > 0){
+            try {
+            servidorDeDados.getLock();
+            clienteUtils.atualizaSaldoEntreTransferencias(contaOrigem, contaDestino, valor);
+            cliente.setMensagem(TRANSFERENCIA_SUCESSO.mensagem());
+            logger.info("Transferencia efetuada com sucesso entre as contas " + contaOrigem + " e" + contaDestino);
+            Thread.sleep(5000);
+
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }finally {
+                servidorDeDados.unLock();
+            }
+
             return new Gson().toJson(cliente);
         }
 
-        if(servidorDeDados.saldoCliente(contaOrigem) >= valor){
-
-            atualizaSaldoEntreTransferencias(contaOrigem, contaDestino, valor);
-            cliente.setMensagem(TRANSFERENCIA_SUCESSO.mensagem());
-            logger.info("Transferencia efetuada com sucesso entre as contas " + contaOrigem + " e" + contaDestino);
-            return new Gson().toJson(cliente);
-        }else{
-            cliente.setMensagem(SALDO_INVALIDO.mensagem());
-            return new Gson().toJson(cliente);
-             }
+            return new Gson().toJson(SALDO_INVALIDO.mensagem());
         }
 
     /**
@@ -55,16 +67,28 @@ public class ServidorService {
 
     public String efetuaSaque(int conta, int quantidade) {
 
-        Cliente cliente = encontraClientePorConta(conta);
+        Cliente cliente = clienteUtils.encontraClientePorConta(conta);
+
+        if(servidorDeDados.isLocked()){
+            return TRANSACAO_EM_USO.mensagem();
+        }
 
         if(servidorDeDados.saldoCliente(conta) >= quantidade){
+
+            try{
+            servidorDeDados.getLock();
             cliente.setSaldo(servidorDeDados.saldoCliente(conta) - quantidade);
             cliente.setMensagem(SAQUE_SUCESSO.mensagem());
             logger.info("Saque efetuado com sucesso na conta" + conta + " na quantia de " + quantidade);
+                Thread.sleep(5000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }finally {
+                servidorDeDados.unLock();
+            }
             return new Gson().toJson(cliente);
         }
-         cliente.setMensagem(SALDO_INVALIDO.mensagem());
-         return new Gson().toJson(cliente);
+            return new Gson().toJson(SALDO_INVALIDO.mensagem());
     }
 
     /**
@@ -76,30 +100,27 @@ public class ServidorService {
 
     public String efetuaDeposito(int conta, int quantidade) {
 
-        Cliente cliente = encontraClientePorConta(conta);
-        cliente.setSaldo(servidorDeDados.saldoCliente(conta) + quantidade);
-        cliente.setMensagem(SAQUE_SUCESSO.mensagem());
-        logger.info("Deposito efetuado com sucesso na conta " + conta + " na quantia de" + quantidade);
-        return new Gson().toJson(cliente);
+        Cliente cliente = clienteUtils.encontraClientePorConta(conta);
 
+        if(servidorDeDados.isLocked()){
+            return TRANSACAO_EM_USO.mensagem();
+        }
+
+        if(servidorDeDados.saldoCliente(conta) < quantidade){
+            try{
+            servidorDeDados.getLock();
+            cliente.setSaldo(servidorDeDados.saldoCliente(conta) + quantidade);
+            cliente.setMensagem(SAQUE_SUCESSO.mensagem());
+            logger.info("Deposito efetuado com sucesso na conta " + conta + " na quantia de" + quantidade);
+            Thread.sleep(5000);
+
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }finally {
+                servidorDeDados.unLock();
+            }
+            return new Gson().toJson(cliente);
+        }
+        return new Gson().toJson(SALDO_INVALIDO.mensagem());
     }
-
-    private Cliente encontraClientePorConta(Integer id){
-
-        return servidorDeDados.listaDeClientes()
-                .stream().
-                        filter(cliente -> cliente.getConta() == id)
-                .findFirst()
-                .get();
-    }
-
-    private void atualizaSaldoEntreTransferencias(int contaOrigem, int contaDestino, int valor) {
-
-        Cliente clienteOrigem = encontraClientePorConta(contaOrigem);
-        clienteOrigem.setSaldo(servidorDeDados.saldoCliente(contaOrigem) - valor);
-
-        Cliente clienteDestino = encontraClientePorConta(contaDestino);
-        clienteDestino.setSaldo(servidorDeDados.saldoCliente(contaDestino) + valor);
-    }
-
 }

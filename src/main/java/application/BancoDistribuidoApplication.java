@@ -3,7 +3,7 @@ package application;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication(scanBasePackages = "servidor")
+@SpringBootApplication(scanBasePackages = { "servidor", "utils"})
 public class BancoDistribuidoApplication {
 
 	public static void main(String[] args) {
