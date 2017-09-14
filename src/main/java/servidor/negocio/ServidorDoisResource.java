@@ -9,6 +9,7 @@ import servidor.ServidorService;
 @RequestMapping("/negocios2")
 public class ServidorDoisResource implements ServidorDeNegocios {
 
+    @Autowired
     private ServidorDeDados servidorDeDados;
 
     @Autowired
