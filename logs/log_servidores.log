@@ -1228,6 +1228,7 @@ Consider defining a bean of type 'utils.ClienteUtils' in your configuration.
 2017-09-13 21:56:57.055  INFO 28784 --- [http-nio-8080-exec-1] servidor.ServidorDeDados                 : Saldo da Conta 5 Consultado
 2017-09-13 21:56:57.055  INFO 28784 --- [http-nio-8080-exec-1] servidor.ServidorDeDados                 : Saldo da Conta 5 Consultado
 2017-09-13 21:56:57.057  INFO 28784 --- [http-nio-8080-exec-1] servidor.ServidorService                 : Saque efetuado com sucesso na conta5 na quantia de 300
+<<<<<<< HEAD
 2017-09-13 23:25:33.991  INFO 28917 --- [main] application.BancoDistribuidoApplication  : Starting BancoDistribuidoApplication on moipadmins-MBP.home with PID 28917 (/Users/vinicius.moraes/mackenzie-projects/banco-distribuido/target/classes started by vinicius.moraes in /Users/vinicius.moraes/mackenzie-projects/banco-distribuido)
 2017-09-13 23:25:33.994  INFO 28917 --- [main] application.BancoDistribuidoApplication  : No active profile set, falling back to default profiles: default
 2017-09-13 23:25:34.105  INFO 28917 --- [main] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@62fdb4a6: startup date [Wed Sep 13 23:25:34 BRT 2017]; root of context hierarchy
@@ -1266,3 +1267,353 @@ Consider defining a bean of type 'utils.ClienteUtils' in your configuration.
 2017-09-13 23:26:03.166  INFO 28917 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
 2017-09-13 23:26:03.183  INFO 28917 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 17 ms
 2017-09-13 23:26:03.228  INFO 28917 --- [http-nio-8080-exec-1] servidor.ServidorDeDados                 : Saldo da Conta 3 Consultado
+=======
+2017-09-13 23:16:39.673  INFO 28859 --- [main] application.BancoDistribuidoApplication  : Starting BancoDistribuidoApplication on moipadmins-MBP.home with PID 28859 (/Users/vinicius.moraes/mackenzie-projects/banco-distribuido/target/classes started by vinicius.moraes in /Users/vinicius.moraes/mackenzie-projects/banco-distribuido)
+2017-09-13 23:16:39.678  INFO 28859 --- [main] application.BancoDistribuidoApplication  : No active profile set, falling back to default profiles: default
+2017-09-13 23:16:39.805  INFO 28859 --- [main] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@62fdb4a6: startup date [Wed Sep 13 23:16:39 BRT 2017]; root of context hierarchy
+2017-09-13 23:16:42.080  INFO 28859 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8080 (http)
+2017-09-13 23:16:42.109  INFO 28859 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2017-09-13 23:16:42.115  INFO 28859 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.16
+2017-09-13 23:16:42.247  INFO 28859 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2017-09-13 23:16:42.247  INFO 28859 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2446 ms
+2017-09-13 23:16:42.479  INFO 28859 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2017-09-13 23:16:42.484  INFO 28859 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2017-09-13 23:16:42.485  INFO 28859 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2017-09-13 23:16:42.486  INFO 28859 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2017-09-13 23:16:42.487  INFO 28859 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2017-09-13 23:16:42.979  INFO 28859 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@62fdb4a6: startup date [Wed Sep 13 23:16:39 BRT 2017]; root of context hierarchy
+2017-09-13 23:16:43.085  INFO 28859 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/negocios2/saldo/{conta}],methods=[GET]}" onto public int servidor.negocio.ServidorDoisResource.saldo(java.lang.Integer)
+2017-09-13 23:16:43.086  INFO 28859 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/negocios2/deposito/{conta}/{quantidade}],methods=[POST]}" onto public java.lang.String servidor.negocio.ServidorDoisResource.deposito(int,int)
+2017-09-13 23:16:43.087  INFO 28859 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/negocios2/saque/{conta}/{quantidade}],methods=[POST]}" onto public java.lang.String servidor.negocio.ServidorDoisResource.saque(int,int)
+2017-09-13 23:16:43.087  INFO 28859 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/negocios2/transferencia/{contaOrigem}/{contaDestino}/{valor}],methods=[POST]}" onto public java.lang.String servidor.negocio.ServidorDoisResource.transferencia(java.lang.Integer,java.lang.Integer,java.lang.Integer)
+2017-09-13 23:16:43.093  INFO 28859 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/negocios3/saldo/{conta}],methods=[GET]}" onto public int servidor.negocio.ServidorTresResource.saldo(java.lang.Integer)
+2017-09-13 23:16:43.094  INFO 28859 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/negocios3/deposito/{conta}/{quantidade}],methods=[POST]}" onto public java.lang.String servidor.negocio.ServidorTresResource.deposito(int,int)
+2017-09-13 23:16:43.095  INFO 28859 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/negocios3/saque/{conta}/{quantidade}],methods=[POST]}" onto public java.lang.String servidor.negocio.ServidorTresResource.saque(int,int)
+2017-09-13 23:16:43.098  INFO 28859 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/negocios3/transferencia/{contaOrigem}/{contaDestino}/{valor}],methods=[POST]}" onto public java.lang.String servidor.negocio.ServidorTresResource.transferencia(java.lang.Integer,java.lang.Integer,java.lang.Integer)
+2017-09-13 23:16:43.124  INFO 28859 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/negocios1/saldo/{conta}],methods=[GET]}" onto public int servidor.negocio.ServidorUmResource.saldo(java.lang.Integer)
+2017-09-13 23:16:43.125  INFO 28859 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/negocios1/deposito/{conta}/{quantidade}],methods=[POST]}" onto public java.lang.String servidor.negocio.ServidorUmResource.deposito(int,int)
+2017-09-13 23:16:43.128  INFO 28859 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/negocios1/saque/{conta}/{quantidade}],methods=[POST]}" onto public java.lang.String servidor.negocio.ServidorUmResource.saque(int,int)
+2017-09-13 23:16:43.131  INFO 28859 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/negocios1/transferencia/{contaOrigem}/{contaDestino}/{valor}],methods=[POST]}" onto public java.lang.String servidor.negocio.ServidorUmResource.transferencia(java.lang.Integer,java.lang.Integer,java.lang.Integer)
+2017-09-13 23:16:43.138  INFO 28859 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2017-09-13 23:16:43.139  INFO 28859 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2017-09-13 23:16:43.181  INFO 28859 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-09-13 23:16:43.181  INFO 28859 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-09-13 23:16:43.279  INFO 28859 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-09-13 23:16:43.660  INFO 28859 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2017-09-13 23:16:43.728 ERROR 28859 --- [main] o.a.coyote.http11.Http11NioProtocol      : Failed to start end point associated with ProtocolHandler ["http-nio-8080"]
+
+java.net.BindException: Address already in use
+	at sun.nio.ch.Net.bind0(Native Method) ~[na:1.8.0_131]
+	at sun.nio.ch.Net.bind(Net.java:433) ~[na:1.8.0_131]
+	at sun.nio.ch.Net.bind(Net.java:425) ~[na:1.8.0_131]
+	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:223) ~[na:1.8.0_131]
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74) ~[na:1.8.0_131]
+	at org.apache.tomcat.util.net.NioEndpoint.bind(NioEndpoint.java:210) ~[tomcat-embed-core-8.5.16.jar:8.5.16]
+	at org.apache.tomcat.util.net.AbstractEndpoint.start(AbstractEndpoint.java:990) ~[tomcat-embed-core-8.5.16.jar:8.5.16]
+	at org.apache.coyote.AbstractProtocol.start(AbstractProtocol.java:635) ~[tomcat-embed-core-8.5.16.jar:8.5.16]
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:1022) [tomcat-embed-core-8.5.16.jar:8.5.16]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:150) [tomcat-embed-core-8.5.16.jar:8.5.16]
+	at org.apache.catalina.core.StandardService.addConnector(StandardService.java:225) [tomcat-embed-core-8.5.16.jar:8.5.16]
+	at org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer.addPreviouslyRemovedConnectors(TomcatEmbeddedServletContainer.java:250) [spring-boot-1.5.6.RELEASE.jar:1.5.6.RELEASE]
+	at org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer.start(TomcatEmbeddedServletContainer.java:193) [spring-boot-1.5.6.RELEASE.jar:1.5.6.RELEASE]
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.startEmbeddedServletContainer(EmbeddedWebApplicationContext.java:297) [spring-boot-1.5.6.RELEASE.jar:1.5.6.RELEASE]
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.finishRefresh(EmbeddedWebApplicationContext.java:145) [spring-boot-1.5.6.RELEASE.jar:1.5.6.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:546) [spring-context-4.3.10.RELEASE.jar:4.3.10.RELEASE]
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122) [spring-boot-1.5.6.RELEASE.jar:1.5.6.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:693) [spring-boot-1.5.6.RELEASE.jar:1.5.6.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:360) [spring-boot-1.5.6.RELEASE.jar:1.5.6.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303) [spring-boot-1.5.6.RELEASE.jar:1.5.6.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1118) [spring-boot-1.5.6.RELEASE.jar:1.5.6.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1107) [spring-boot-1.5.6.RELEASE.jar:1.5.6.RELEASE]
+	at application.BancoDistribuidoApplication.main(BancoDistribuidoApplication.java:10) [classes/:na]
+
+2017-09-13 23:16:43.730 ERROR 28859 --- [main] o.apache.catalina.core.StandardService   : Failed to start connector [Connector[HTTP/1.1-8080]]
+
+org.apache.catalina.LifecycleException: Failed to start component [Connector[HTTP/1.1-8080]]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:167) ~[tomcat-embed-core-8.5.16.jar:8.5.16]
+	at org.apache.catalina.core.StandardService.addConnector(StandardService.java:225) ~[tomcat-embed-core-8.5.16.jar:8.5.16]
+	at org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer.addPreviouslyRemovedConnectors(TomcatEmbeddedServletContainer.java:250) [spring-boot-1.5.6.RELEASE.jar:1.5.6.RELEASE]
+	at org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer.start(TomcatEmbeddedServletContainer.java:193) [spring-boot-1.5.6.RELEASE.jar:1.5.6.RELEASE]
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.startEmbeddedServletContainer(EmbeddedWebApplicationContext.java:297) [spring-boot-1.5.6.RELEASE.jar:1.5.6.RELEASE]
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.finishRefresh(EmbeddedWebApplicationContext.java:145) [spring-boot-1.5.6.RELEASE.jar:1.5.6.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:546) [spring-context-4.3.10.RELEASE.jar:4.3.10.RELEASE]
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122) [spring-boot-1.5.6.RELEASE.jar:1.5.6.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:693) [spring-boot-1.5.6.RELEASE.jar:1.5.6.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:360) [spring-boot-1.5.6.RELEASE.jar:1.5.6.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303) [spring-boot-1.5.6.RELEASE.jar:1.5.6.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1118) [spring-boot-1.5.6.RELEASE.jar:1.5.6.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1107) [spring-boot-1.5.6.RELEASE.jar:1.5.6.RELEASE]
+	at application.BancoDistribuidoApplication.main(BancoDistribuidoApplication.java:10) [classes/:na]
+Caused by: org.apache.catalina.LifecycleException: service.getName(): "Tomcat";  Protocol handler start failed
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:1029) ~[tomcat-embed-core-8.5.16.jar:8.5.16]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:150) ~[tomcat-embed-core-8.5.16.jar:8.5.16]
+	... 13 common frames omitted
+Caused by: java.net.BindException: Address already in use
+	at sun.nio.ch.Net.bind0(Native Method) ~[na:1.8.0_131]
+	at sun.nio.ch.Net.bind(Net.java:433) ~[na:1.8.0_131]
+	at sun.nio.ch.Net.bind(Net.java:425) ~[na:1.8.0_131]
+	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:223) ~[na:1.8.0_131]
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74) ~[na:1.8.0_131]
+	at org.apache.tomcat.util.net.NioEndpoint.bind(NioEndpoint.java:210) ~[tomcat-embed-core-8.5.16.jar:8.5.16]
+	at org.apache.tomcat.util.net.AbstractEndpoint.start(AbstractEndpoint.java:990) ~[tomcat-embed-core-8.5.16.jar:8.5.16]
+	at org.apache.coyote.AbstractProtocol.start(AbstractProtocol.java:635) ~[tomcat-embed-core-8.5.16.jar:8.5.16]
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:1022) ~[tomcat-embed-core-8.5.16.jar:8.5.16]
+	... 14 common frames omitted
+
+2017-09-13 23:16:43.744  INFO 28859 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2017-09-13 23:16:43.762  INFO 28859 --- [main] utoConfigurationReportLoggingInitializer : 
+
+Error starting ApplicationContext. To display the auto-configuration report re-run your application with 'debug' enabled.
+2017-09-13 23:16:43.766 ERROR 28859 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The Tomcat connector configured to listen on port 8080 failed to start. The port may already be in use or the connector may be misconfigured.
+
+Action:
+
+Verify the connector's configuration, identify and stop any process that's listening on port 8080, or configure this application to listen on another port.
+
+2017-09-13 23:16:43.770  INFO 28859 --- [main] ationConfigEmbeddedWebApplicationContext : Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@62fdb4a6: startup date [Wed Sep 13 23:16:39 BRT 2017]; root of context hierarchy
+2017-09-13 23:16:43.771  INFO 28859 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+2017-09-13 23:16:50.517  INFO 28784 --- [Thread-3] ationConfigEmbeddedWebApplicationContext : Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@62fdb4a6: startup date [Wed Sep 13 21:56:29 BRT 2017]; root of context hierarchy
+2017-09-13 23:16:50.520  INFO 28784 --- [Thread-3] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+2017-09-13 23:16:54.969  INFO 28865 --- [main] application.BancoDistribuidoApplication  : Starting BancoDistribuidoApplication on moipadmins-MBP.home with PID 28865 (/Users/vinicius.moraes/mackenzie-projects/banco-distribuido/target/classes started by vinicius.moraes in /Users/vinicius.moraes/mackenzie-projects/banco-distribuido)
+2017-09-13 23:16:54.973  INFO 28865 --- [main] application.BancoDistribuidoApplication  : No active profile set, falling back to default profiles: default
+2017-09-13 23:16:55.075  INFO 28865 --- [main] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@62fdb4a6: startup date [Wed Sep 13 23:16:55 BRT 2017]; root of context hierarchy
+2017-09-13 23:16:57.123  INFO 28865 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8080 (http)
+2017-09-13 23:16:57.149  INFO 28865 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2017-09-13 23:16:57.150  INFO 28865 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.16
+2017-09-13 23:16:57.264  INFO 28865 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2017-09-13 23:16:57.265  INFO 28865 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2194 ms
+2017-09-13 23:16:57.482  INFO 28865 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2017-09-13 23:16:57.486  INFO 28865 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2017-09-13 23:16:57.487  INFO 28865 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2017-09-13 23:16:57.487  INFO 28865 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2017-09-13 23:16:57.487  INFO 28865 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2017-09-13 23:16:57.900  INFO 28865 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@62fdb4a6: startup date [Wed Sep 13 23:16:55 BRT 2017]; root of context hierarchy
+2017-09-13 23:16:58.016  INFO 28865 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/negocios2/saldo/{conta}],methods=[GET]}" onto public int servidor.negocio.ServidorDoisResource.saldo(java.lang.Integer)
+2017-09-13 23:16:58.018  INFO 28865 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/negocios2/deposito/{conta}/{quantidade}],methods=[POST]}" onto public java.lang.String servidor.negocio.ServidorDoisResource.deposito(int,int)
+2017-09-13 23:16:58.019  INFO 28865 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/negocios2/saque/{conta}/{quantidade}],methods=[POST]}" onto public java.lang.String servidor.negocio.ServidorDoisResource.saque(int,int)
+2017-09-13 23:16:58.020  INFO 28865 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/negocios2/transferencia/{contaOrigem}/{contaDestino}/{valor}],methods=[POST]}" onto public java.lang.String servidor.negocio.ServidorDoisResource.transferencia(java.lang.Integer,java.lang.Integer,java.lang.Integer)
+2017-09-13 23:16:58.033  INFO 28865 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/negocios3/saldo/{conta}],methods=[GET]}" onto public int servidor.negocio.ServidorTresResource.saldo(java.lang.Integer)
+2017-09-13 23:16:58.034  INFO 28865 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/negocios3/deposito/{conta}/{quantidade}],methods=[POST]}" onto public java.lang.String servidor.negocio.ServidorTresResource.deposito(int,int)
+2017-09-13 23:16:58.034  INFO 28865 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/negocios3/saque/{conta}/{quantidade}],methods=[POST]}" onto public java.lang.String servidor.negocio.ServidorTresResource.saque(int,int)
+2017-09-13 23:16:58.035  INFO 28865 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/negocios3/transferencia/{contaOrigem}/{contaDestino}/{valor}],methods=[POST]}" onto public java.lang.String servidor.negocio.ServidorTresResource.transferencia(java.lang.Integer,java.lang.Integer,java.lang.Integer)
+2017-09-13 23:16:58.046  INFO 28865 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/negocios1/saldo/{conta}],methods=[GET]}" onto public int servidor.negocio.ServidorUmResource.saldo(java.lang.Integer)
+2017-09-13 23:16:58.047  INFO 28865 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/negocios1/deposito/{conta}/{quantidade}],methods=[POST]}" onto public java.lang.String servidor.negocio.ServidorUmResource.deposito(int,int)
+2017-09-13 23:16:58.049  INFO 28865 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/negocios1/saque/{conta}/{quantidade}],methods=[POST]}" onto public java.lang.String servidor.negocio.ServidorUmResource.saque(int,int)
+2017-09-13 23:16:58.050  INFO 28865 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/negocios1/transferencia/{contaOrigem}/{contaDestino}/{valor}],methods=[POST]}" onto public java.lang.String servidor.negocio.ServidorUmResource.transferencia(java.lang.Integer,java.lang.Integer,java.lang.Integer)
+2017-09-13 23:16:58.054  INFO 28865 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2017-09-13 23:16:58.055  INFO 28865 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2017-09-13 23:16:58.110  INFO 28865 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-09-13 23:16:58.110  INFO 28865 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-09-13 23:16:58.179  INFO 28865 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-09-13 23:16:58.487  INFO 28865 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2017-09-13 23:16:58.570  INFO 28865 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8080 (http)
+2017-09-13 23:16:58.578  INFO 28865 --- [main] application.BancoDistribuidoApplication  : Started BancoDistribuidoApplication in 4.156 seconds (JVM running for 4.901)
+2017-09-13 23:17:19.036  INFO 28865 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2017-09-13 23:17:19.037  INFO 28865 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2017-09-13 23:17:19.054  INFO 28865 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 17 ms
+2017-09-13 23:17:19.120 ERROR 28865 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
+
+java.lang.NullPointerException: null
+	at servidor.negocio.ServidorUmResource.saldo(ServidorUmResource.java:33) ~[classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_131]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_131]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_131]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_131]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-4.3.10.RELEASE.jar:4.3.10.RELEASE]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:133) ~[spring-web-4.3.10.RELEASE.jar:4.3.10.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:97) ~[spring-webmvc-4.3.10.RELEASE.jar:4.3.10.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:827) ~[spring-webmvc-4.3.10.RELEASE.jar:4.3.10.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:738) ~[spring-webmvc-4.3.10.RELEASE.jar:4.3.10.RELEASE]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:85) ~[spring-webmvc-4.3.10.RELEASE.jar:4.3.10.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:967) ~[spring-webmvc-4.3.10.RELEASE.jar:4.3.10.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:901) ~[spring-webmvc-4.3.10.RELEASE.jar:4.3.10.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970) ~[spring-webmvc-4.3.10.RELEASE.jar:4.3.10.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:861) ~[spring-webmvc-4.3.10.RELEASE.jar:4.3.10.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:635) ~[tomcat-embed-core-8.5.16.jar:8.5.16]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846) ~[spring-webmvc-4.3.10.RELEASE.jar:4.3.10.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742) ~[tomcat-embed-core-8.5.16.jar:8.5.16]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) ~[tomcat-embed-core-8.5.16.jar:8.5.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.16.jar:8.5.16]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52) ~[tomcat-embed-websocket-8.5.16.jar:8.5.16]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.16.jar:8.5.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.16.jar:8.5.16]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99) ~[spring-web-4.3.10.RELEASE.jar:4.3.10.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-4.3.10.RELEASE.jar:4.3.10.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.16.jar:8.5.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.16.jar:8.5.16]
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:105) ~[spring-web-4.3.10.RELEASE.jar:4.3.10.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-4.3.10.RELEASE.jar:4.3.10.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.16.jar:8.5.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.16.jar:8.5.16]
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:81) ~[spring-web-4.3.10.RELEASE.jar:4.3.10.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-4.3.10.RELEASE.jar:4.3.10.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.16.jar:8.5.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.16.jar:8.5.16]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:197) ~[spring-web-4.3.10.RELEASE.jar:4.3.10.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-4.3.10.RELEASE.jar:4.3.10.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.16.jar:8.5.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.16.jar:8.5.16]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198) ~[tomcat-embed-core-8.5.16.jar:8.5.16]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) [tomcat-embed-core-8.5.16.jar:8.5.16]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:478) [tomcat-embed-core-8.5.16.jar:8.5.16]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140) [tomcat-embed-core-8.5.16.jar:8.5.16]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:80) [tomcat-embed-core-8.5.16.jar:8.5.16]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87) [tomcat-embed-core-8.5.16.jar:8.5.16]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342) [tomcat-embed-core-8.5.16.jar:8.5.16]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:799) [tomcat-embed-core-8.5.16.jar:8.5.16]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66) [tomcat-embed-core-8.5.16.jar:8.5.16]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868) [tomcat-embed-core-8.5.16.jar:8.5.16]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1455) [tomcat-embed-core-8.5.16.jar:8.5.16]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-8.5.16.jar:8.5.16]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) [na:1.8.0_131]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617) [na:1.8.0_131]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-8.5.16.jar:8.5.16]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_131]
+
+2017-09-13 23:17:58.714  INFO 28865 --- [Thread-3] ationConfigEmbeddedWebApplicationContext : Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@62fdb4a6: startup date [Wed Sep 13 23:16:55 BRT 2017]; root of context hierarchy
+2017-09-13 23:17:58.717  INFO 28865 --- [Thread-3] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+2017-09-13 23:18:01.822  INFO 28869 --- [main] application.BancoDistribuidoApplication  : Starting BancoDistribuidoApplication on moipadmins-MBP.home with PID 28869 (/Users/vinicius.moraes/mackenzie-projects/banco-distribuido/target/classes started by vinicius.moraes in /Users/vinicius.moraes/mackenzie-projects/banco-distribuido)
+2017-09-13 23:18:01.832  INFO 28869 --- [main] application.BancoDistribuidoApplication  : No active profile set, falling back to default profiles: default
+2017-09-13 23:18:02.071  INFO 28869 --- [main] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@6d3a388c: startup date [Wed Sep 13 23:18:02 BRT 2017]; root of context hierarchy
+2017-09-13 23:18:04.402  INFO 28869 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8080 (http)
+2017-09-13 23:18:04.420  INFO 28869 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2017-09-13 23:18:04.428  INFO 28869 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.16
+2017-09-13 23:18:04.627  INFO 28869 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2017-09-13 23:18:04.628  INFO 28869 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2565 ms
+2017-09-13 23:18:04.896  INFO 28869 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2017-09-13 23:18:04.902  INFO 28869 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2017-09-13 23:18:04.904  INFO 28869 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2017-09-13 23:18:04.904  INFO 28869 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2017-09-13 23:18:04.904  INFO 28869 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2017-09-13 23:18:05.415  INFO 28869 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@6d3a388c: startup date [Wed Sep 13 23:18:02 BRT 2017]; root of context hierarchy
+2017-09-13 23:18:05.528  INFO 28869 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/negocios2/saldo/{conta}],methods=[GET]}" onto public int servidor.negocio.ServidorDoisResource.saldo(java.lang.Integer)
+2017-09-13 23:18:05.530  INFO 28869 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/negocios2/saque/{conta}/{quantidade}],methods=[POST]}" onto public java.lang.String servidor.negocio.ServidorDoisResource.saque(int,int)
+2017-09-13 23:18:05.531  INFO 28869 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/negocios2/deposito/{conta}/{quantidade}],methods=[POST]}" onto public java.lang.String servidor.negocio.ServidorDoisResource.deposito(int,int)
+2017-09-13 23:18:05.531  INFO 28869 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/negocios2/transferencia/{contaOrigem}/{contaDestino}/{valor}],methods=[POST]}" onto public java.lang.String servidor.negocio.ServidorDoisResource.transferencia(java.lang.Integer,java.lang.Integer,java.lang.Integer)
+2017-09-13 23:18:05.536  INFO 28869 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/negocios3/saldo/{conta}],methods=[GET]}" onto public int servidor.negocio.ServidorTresResource.saldo(java.lang.Integer)
+2017-09-13 23:18:05.537  INFO 28869 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/negocios3/saque/{conta}/{quantidade}],methods=[POST]}" onto public java.lang.String servidor.negocio.ServidorTresResource.saque(int,int)
+2017-09-13 23:18:05.538  INFO 28869 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/negocios3/deposito/{conta}/{quantidade}],methods=[POST]}" onto public java.lang.String servidor.negocio.ServidorTresResource.deposito(int,int)
+2017-09-13 23:18:05.538  INFO 28869 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/negocios3/transferencia/{contaOrigem}/{contaDestino}/{valor}],methods=[POST]}" onto public java.lang.String servidor.negocio.ServidorTresResource.transferencia(java.lang.Integer,java.lang.Integer,java.lang.Integer)
+2017-09-13 23:18:05.547  INFO 28869 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/negocios1/saldo/{conta}],methods=[GET]}" onto public int servidor.negocio.ServidorUmResource.saldo(java.lang.Integer)
+2017-09-13 23:18:05.549  INFO 28869 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/negocios1/saque/{conta}/{quantidade}],methods=[POST]}" onto public java.lang.String servidor.negocio.ServidorUmResource.saque(int,int)
+2017-09-13 23:18:05.550  INFO 28869 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/negocios1/deposito/{conta}/{quantidade}],methods=[POST]}" onto public java.lang.String servidor.negocio.ServidorUmResource.deposito(int,int)
+2017-09-13 23:18:05.551  INFO 28869 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/negocios1/transferencia/{contaOrigem}/{contaDestino}/{valor}],methods=[POST]}" onto public java.lang.String servidor.negocio.ServidorUmResource.transferencia(java.lang.Integer,java.lang.Integer,java.lang.Integer)
+2017-09-13 23:18:05.559  INFO 28869 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2017-09-13 23:18:05.562  INFO 28869 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2017-09-13 23:18:05.612  INFO 28869 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-09-13 23:18:05.612  INFO 28869 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-09-13 23:18:05.696  INFO 28869 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-09-13 23:18:06.131  INFO 28869 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2017-09-13 23:18:06.231  INFO 28869 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8080 (http)
+2017-09-13 23:18:06.245  INFO 28869 --- [main] application.BancoDistribuidoApplication  : Started BancoDistribuidoApplication in 5.042 seconds (JVM running for 5.84)
+2017-09-13 23:18:15.196  INFO 28869 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2017-09-13 23:18:15.196  INFO 28869 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2017-09-13 23:18:15.218  INFO 28869 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 21 ms
+2017-09-13 23:18:27.695 ERROR 28869 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
+
+java.lang.NullPointerException: null
+	at servidor.negocio.ServidorUmResource.saldo(ServidorUmResource.java:33) ~[classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_131]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_131]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_131]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_131]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-4.3.10.RELEASE.jar:4.3.10.RELEASE]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:133) ~[spring-web-4.3.10.RELEASE.jar:4.3.10.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:97) ~[spring-webmvc-4.3.10.RELEASE.jar:4.3.10.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:827) ~[spring-webmvc-4.3.10.RELEASE.jar:4.3.10.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:738) ~[spring-webmvc-4.3.10.RELEASE.jar:4.3.10.RELEASE]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:85) ~[spring-webmvc-4.3.10.RELEASE.jar:4.3.10.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:967) ~[spring-webmvc-4.3.10.RELEASE.jar:4.3.10.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:901) ~[spring-webmvc-4.3.10.RELEASE.jar:4.3.10.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970) ~[spring-webmvc-4.3.10.RELEASE.jar:4.3.10.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:861) ~[spring-webmvc-4.3.10.RELEASE.jar:4.3.10.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:635) ~[tomcat-embed-core-8.5.16.jar:8.5.16]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846) ~[spring-webmvc-4.3.10.RELEASE.jar:4.3.10.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742) ~[tomcat-embed-core-8.5.16.jar:8.5.16]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) ~[tomcat-embed-core-8.5.16.jar:8.5.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.16.jar:8.5.16]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52) ~[tomcat-embed-websocket-8.5.16.jar:8.5.16]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.16.jar:8.5.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.16.jar:8.5.16]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99) ~[spring-web-4.3.10.RELEASE.jar:4.3.10.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-4.3.10.RELEASE.jar:4.3.10.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.16.jar:8.5.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.16.jar:8.5.16]
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:105) ~[spring-web-4.3.10.RELEASE.jar:4.3.10.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-4.3.10.RELEASE.jar:4.3.10.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.16.jar:8.5.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.16.jar:8.5.16]
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:81) ~[spring-web-4.3.10.RELEASE.jar:4.3.10.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-4.3.10.RELEASE.jar:4.3.10.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.16.jar:8.5.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.16.jar:8.5.16]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:197) ~[spring-web-4.3.10.RELEASE.jar:4.3.10.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-4.3.10.RELEASE.jar:4.3.10.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.16.jar:8.5.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.16.jar:8.5.16]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198) ~[tomcat-embed-core-8.5.16.jar:8.5.16]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) [tomcat-embed-core-8.5.16.jar:8.5.16]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:478) [tomcat-embed-core-8.5.16.jar:8.5.16]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140) [tomcat-embed-core-8.5.16.jar:8.5.16]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:80) [tomcat-embed-core-8.5.16.jar:8.5.16]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87) [tomcat-embed-core-8.5.16.jar:8.5.16]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342) [tomcat-embed-core-8.5.16.jar:8.5.16]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:799) [tomcat-embed-core-8.5.16.jar:8.5.16]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66) [tomcat-embed-core-8.5.16.jar:8.5.16]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868) [tomcat-embed-core-8.5.16.jar:8.5.16]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1455) [tomcat-embed-core-8.5.16.jar:8.5.16]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-8.5.16.jar:8.5.16]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) [na:1.8.0_131]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617) [na:1.8.0_131]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-8.5.16.jar:8.5.16]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_131]
+
+2017-09-13 23:18:27.721  INFO 28869 --- [Thread-3] ationConfigEmbeddedWebApplicationContext : Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@6d3a388c: startup date [Wed Sep 13 23:18:02 BRT 2017]; root of context hierarchy
+2017-09-13 23:18:27.726  INFO 28869 --- [Thread-3] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+2017-09-13 23:18:32.482  INFO 28877 --- [main] application.BancoDistribuidoApplication  : Starting BancoDistribuidoApplication on moipadmins-MBP.home with PID 28877 (/Users/vinicius.moraes/mackenzie-projects/banco-distribuido/target/classes started by vinicius.moraes in /Users/vinicius.moraes/mackenzie-projects/banco-distribuido)
+2017-09-13 23:18:32.486  INFO 28877 --- [main] application.BancoDistribuidoApplication  : No active profile set, falling back to default profiles: default
+2017-09-13 23:18:32.604  INFO 28877 --- [main] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@62fdb4a6: startup date [Wed Sep 13 23:18:32 BRT 2017]; root of context hierarchy
+2017-09-13 23:18:35.143  INFO 28877 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8080 (http)
+2017-09-13 23:18:35.158  INFO 28877 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2017-09-13 23:18:35.160  INFO 28877 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.16
+2017-09-13 23:18:35.286  INFO 28877 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2017-09-13 23:18:35.286  INFO 28877 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2692 ms
+2017-09-13 23:18:35.541  INFO 28877 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2017-09-13 23:18:35.547  INFO 28877 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2017-09-13 23:18:35.548  INFO 28877 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2017-09-13 23:18:35.548  INFO 28877 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2017-09-13 23:18:35.549  INFO 28877 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2017-09-13 23:18:35.968  INFO 28877 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@62fdb4a6: startup date [Wed Sep 13 23:18:32 BRT 2017]; root of context hierarchy
+2017-09-13 23:18:36.070  INFO 28877 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/negocios2/saldo/{conta}],methods=[GET]}" onto public int servidor.negocio.ServidorDoisResource.saldo(java.lang.Integer)
+2017-09-13 23:18:36.072  INFO 28877 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/negocios2/deposito/{conta}/{quantidade}],methods=[POST]}" onto public java.lang.String servidor.negocio.ServidorDoisResource.deposito(int,int)
+2017-09-13 23:18:36.073  INFO 28877 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/negocios2/saque/{conta}/{quantidade}],methods=[POST]}" onto public java.lang.String servidor.negocio.ServidorDoisResource.saque(int,int)
+2017-09-13 23:18:36.075  INFO 28877 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/negocios2/transferencia/{contaOrigem}/{contaDestino}/{valor}],methods=[POST]}" onto public java.lang.String servidor.negocio.ServidorDoisResource.transferencia(java.lang.Integer,java.lang.Integer,java.lang.Integer)
+2017-09-13 23:18:36.087  INFO 28877 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/negocios3/saldo/{conta}],methods=[GET]}" onto public int servidor.negocio.ServidorTresResource.saldo(java.lang.Integer)
+2017-09-13 23:18:36.091  INFO 28877 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/negocios3/deposito/{conta}/{quantidade}],methods=[POST]}" onto public java.lang.String servidor.negocio.ServidorTresResource.deposito(int,int)
+2017-09-13 23:18:36.092  INFO 28877 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/negocios3/saque/{conta}/{quantidade}],methods=[POST]}" onto public java.lang.String servidor.negocio.ServidorTresResource.saque(int,int)
+2017-09-13 23:18:36.094  INFO 28877 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/negocios3/transferencia/{contaOrigem}/{contaDestino}/{valor}],methods=[POST]}" onto public java.lang.String servidor.negocio.ServidorTresResource.transferencia(java.lang.Integer,java.lang.Integer,java.lang.Integer)
+2017-09-13 23:18:36.101  INFO 28877 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/negocios1/saldo/{conta}],methods=[GET]}" onto public int servidor.negocio.ServidorUmResource.saldo(java.lang.Integer)
+2017-09-13 23:18:36.102  INFO 28877 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/negocios1/deposito/{conta}/{quantidade}],methods=[POST]}" onto public java.lang.String servidor.negocio.ServidorUmResource.deposito(int,int)
+2017-09-13 23:18:36.103  INFO 28877 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/negocios1/saque/{conta}/{quantidade}],methods=[POST]}" onto public java.lang.String servidor.negocio.ServidorUmResource.saque(int,int)
+2017-09-13 23:18:36.104  INFO 28877 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/negocios1/transferencia/{contaOrigem}/{contaDestino}/{valor}],methods=[POST]}" onto public java.lang.String servidor.negocio.ServidorUmResource.transferencia(java.lang.Integer,java.lang.Integer,java.lang.Integer)
+2017-09-13 23:18:36.108  INFO 28877 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2017-09-13 23:18:36.109  INFO 28877 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2017-09-13 23:18:36.144  INFO 28877 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-09-13 23:18:36.145  INFO 28877 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-09-13 23:18:36.198  INFO 28877 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-09-13 23:18:36.646  INFO 28877 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2017-09-13 23:18:36.724  INFO 28877 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8080 (http)
+2017-09-13 23:18:36.733  INFO 28877 --- [main] application.BancoDistribuidoApplication  : Started BancoDistribuidoApplication in 4.76 seconds (JVM running for 5.303)
+2017-09-13 23:18:51.447  INFO 28877 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2017-09-13 23:18:51.447  INFO 28877 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2017-09-13 23:18:51.467  INFO 28877 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 19 ms
+2017-09-13 23:18:51.528  INFO 28877 --- [http-nio-8080-exec-1] servidor.ServidorDeDados                 : Saldo da Conta 3 Consultado
+>>>>>>> 6b5f17538fb87054145acb8ce7c79110af7311e1
